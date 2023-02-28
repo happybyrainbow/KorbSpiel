@@ -7,6 +7,7 @@ public class Apple extends GraphicalObject {
 
     //Attribute
     private double speed;
+    private Apple a1;
 
     public Apple(double x, double y){
         this.x = x;
@@ -26,7 +27,15 @@ public class Apple extends GraphicalObject {
     @Override
     public void update(double dt) {
         //TODO 01 Ein Apfel soll von oben herab fallen. Sobald er unten den Bildschirmrand berührt wird die Methode jumpBack() aufgerufen (siehe TODO 02).
+        y = y + dt*speed;
+        if(y > 1035){
+            jumpBack();
+        }
     }
 
     //TODO 02 Lege eine Methode jumpBack() an, die bei Aufruf das Apple-Objekt oben am oberen Bildschirmrand an einer zufälligen x-Position positioniert.
+    public void jumpBack(){
+        y = -35;
+        x = Math.random() * 776;
+    }
 }
