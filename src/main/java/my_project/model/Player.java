@@ -68,4 +68,8 @@ public class Player extends InteractiveGraphicalObject {
             direction = -1;
         }
     }
+
+    public void setSpeed(double speed) {
+        this.speed = speed;
+    }
 }
