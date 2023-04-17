@@ -9,6 +9,11 @@ public class Pear extends Fruit {
     //Attribute
     private double timer;
     private int speed;
+    private double tx;
+    private double ty;
+    Player2 player02;
+    Player player01;
+
 
     public Pear(double x, double y) {
         super(x, y);
@@ -23,6 +28,7 @@ public class Pear extends Fruit {
         drawTool.drawFilledRectangle(x, y, width, height);
         drawTool.setCurrentColor(0, 0, 0, 255);
         drawTool.drawRectangle(x, y, width, height);
+        //Text(drawTool);
     }
 
     @Override
@@ -36,4 +42,11 @@ public class Pear extends Fruit {
             timer = 0;
         }
     }
+//    public void Text(DrawTool drawTool){
+//        if(collidesWith(player01) || collidesWith(player02)){
+//            tx = x;
+//            ty = y;
+//            drawTool.drawText(tx,ty, "In der Not frisst der Teufel Birnen");
+//        }
+//    }
 }

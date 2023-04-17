@@ -4,10 +4,10 @@ import KAGO_framework.model.InteractiveGraphicalObject;
 import KAGO_framework.view.DrawTool;
 import my_project.Config;
 
+import java.awt.*;
 import java.awt.event.KeyEvent;
 
-public class Player extends InteractiveGraphicalObject {
-
+public class Player2 extends InteractiveGraphicalObject {
 
     //Attribute
     private double speed;
@@ -19,21 +19,21 @@ public class Player extends InteractiveGraphicalObject {
     private int direction;
     //private int width;
 
-    public Player(double x, double y, int width){
+    public Player2(double x, double y, int width){
         this.x = x;
         this.y = y;
         speed = 150;
         this.width = 80;
         height = 40;
 
-        this.keyToGoLeft    = KeyEvent.VK_A;
-        this.keyToGoRight   = KeyEvent.VK_D;
+        this.keyToGoLeft    = KeyEvent.VK_LEFT;
+        this.keyToGoRight   = KeyEvent.VK_RIGHT;
         this.direction      = -1; //-1 keine Bewegung, 0 nach rechts, 2 nach links
     }
 
     @Override
     public void draw(DrawTool drawTool) {
-        drawTool.setCurrentColor(157,152,3,255);
+        drawTool.setCurrentColor(new Color(1,1,1));
         drawTool.drawFilledRectangle(x,y,width,height);
         drawTool.setCurrentColor(0,0,0,255);
         drawTool.drawRectangle(x,y,width,height);
@@ -78,3 +78,4 @@ public class Player extends InteractiveGraphicalObject {
         this.width = width;
     }
 }
+
