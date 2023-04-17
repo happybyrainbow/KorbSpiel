@@ -1,7 +1,8 @@
 package my_project.model;
 
-import KAGO_framework.model.GraphicalObject;
 import KAGO_framework.view.DrawTool;
+
+import java.awt.*;
 
 
 public class Pear extends Fruit {
@@ -9,17 +10,22 @@ public class Pear extends Fruit {
     //Attribute
     private double timer;
     private int speed;
+
     private double tx;
     private double ty;
-    Player2 player02;
     Player player01;
-
+    Player2 player02;
+    Pear p;
+    private double alpha = 255;
+    private boolean trigger = false;
 
     public Pear(double x, double y) {
+
         super(x, y);
         width = 25;
         height = 35;
         speed = 20;
+
     }
 
     @Override
@@ -28,7 +34,11 @@ public class Pear extends Fruit {
         drawTool.drawFilledRectangle(x, y, width, height);
         drawTool.setCurrentColor(0, 0, 0, 255);
         drawTool.drawRectangle(x, y, width, height);
-        //Text(drawTool);
+
+        drawTool.setCurrentColor(new Color(86, 8, 8,(int)alpha));
+        if(alpha > 0) {
+            drawTool.drawText(tx, ty, "In der Not frisst der Teufel Birnen");
+        }
     }
 
     @Override
@@ -41,12 +51,43 @@ public class Pear extends Fruit {
             speed = speed * -1;
             timer = 0;
         }
+        if(trigger == true){
+            alpha = alpha - dt * 80;
+        }
+        if(alpha < 0) {
+            trigger = false;
+        }
     }
-//    public void Text(DrawTool drawTool){
-//        if(collidesWith(player01) || collidesWith(player02)){
-//            tx = x;
-//            ty = y;
-//            drawTool.drawText(tx,ty, "In der Not frisst der Teufel Birnen");
-//        }
-//    }
+
+    public boolean isTrigger() {
+        return trigger;
+    }
+
+    public void setTrigger(boolean trigger) {
+        this.trigger = trigger;
+    }
+
+    public double getTx() {
+        return tx;
+    }
+
+    public void setTx(double tx) {
+        this.tx = tx;
+    }
+
+    public double getTy() {
+        return ty;
+    }
+
+    public void setTy(double ty) {
+        this.ty = ty;
+    }
+
+    public double getAlpha() {
+        return alpha;
+    }
+
+    public void setAlpha(double alpha) {
+        this.alpha = alpha;
+    }
 }

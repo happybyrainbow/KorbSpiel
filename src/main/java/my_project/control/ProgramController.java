@@ -118,10 +118,24 @@ public class ProgramController {
             if (checkAndHandleCollision(p)) {
                 p.jumpBack();
                 po.setPunkte1(po.getPunkte1() - 1);
+                p.setTx(player01.getX());
+                p.setTy(player01.getY() - 15);
+                p.setTrigger(true);
+//                p.setAlpha(255 - dt*40);
+//                if(p.getAlpha() > 254){
+//                    p.setAlpha((int)(p.getAlpha()-dt*40));
+//                }
             }
             if (checkAndHandleCollision2(p)) {
                 p.jumpBack();
                 po.setPunkte2(po.getPunkte2() - 1);
+                p.setTx(player02.getX());
+                p.setTy(player02.getY() - 15);
+                p.setTrigger(true);
+//                p.setAlpha(255 - dt*40);
+//                if(p.getAlpha() > 254){
+//                    p.setAlpha((int)(p.getAlpha() - dt*40));
+//                }
             }
         }
         for (Apple a : allApples) {

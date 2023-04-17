@@ -15,24 +15,16 @@ public class Apple extends Fruit {
     public Apple(double x, double y){
         super(x,y);
         radius = 30;
-        //x = Math.random() + 15 * (Config.WINDOW_WIDTH - 15);
-//        for(int j = 0; j < 5; j++) {
-//            double[] apple = new double[3];
-//            apple[0] = x;
-//            apple[1] = y;
-//            apple[2] = radius;
-//            allApples.add(apple);
-//        }
     }
 
     @Override
     public void draw(DrawTool drawTool) {
-        //for(int l = 0; l < allApples.size(); l++) {
-            drawTool.setCurrentColor(255, 0, 0, 255);
-            drawTool.drawFilledCircle(x, y, radius);
-            drawTool.setCurrentColor(0, 0, 0, 255);
-            drawTool.drawCircle(x, y, radius);
-        //}
+
+        drawTool.setCurrentColor(255, 0, 0, 255);
+        drawTool.drawFilledCircle(x, y, radius);
+        drawTool.setCurrentColor(0, 0, 0, 255);
+        drawTool.drawCircle(x, y, radius);
+        
     }
 
     @Override
